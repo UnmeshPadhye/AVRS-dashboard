@@ -6,7 +6,7 @@ const RobotDetails = ({ robot }) => {
         return <div>Loading...</div>;
     }
 
-    const { id, name, model, manufacturer, serialNumber, height, mass, status, description, sensors } = robot;
+    const { id, name, model, manufacturer, serialNumber, height, mass, status, description, sensors, logs, notifications } = robot;
 
     const Sensor = ({ type, status }) => (
         <div className="flex justify-between py-1">
@@ -26,6 +26,42 @@ const RobotDetails = ({ robot }) => {
             <Link to={`/robots/${id}/feed`} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
                 View Camera Feed
             </Link>
+        </div>
+    );
+
+    const Log = ({ time, event }) => (
+        <div className="flex justify-between py-1">
+            <p>{time}</p>
+            <p className="ml-2 text-gray-600">{event}</p>
+        </div>
+    );
+
+    const Logs = ({ logs }) => (
+        <div className="bg-gray-100 rounded-md shadow-lg p-4 mr-4">
+            <h2 className="font-bold mb-4">Logs</h2>
+            <div>
+                {/* {logs.map((log) => (
+                    <Log key={log.time} time={log.time} event={log.event} />
+                ))} */}
+            </div>
+        </div>
+    );
+
+    const Notification = ({ type, message }) => (
+        <div className="flex justify-between py-1">
+            <p className="font-bold">{type}</p>
+            <p className="ml-2 text-gray-600">{message}</p>
+        </div>
+    );
+
+    const Notifications = ({ notifications }) => (
+        <div className="bg-gray-100 rounded-md shadow-lg p-4">
+            <h2 className="font-bold mb-4">Notifications</h2>
+            <div>
+                {/* {notifications.map((notification) => (
+                    <Notification key={notification.type} type={notification.type} message={notification.message} />
+                ))} */}
+            </div>
         </div>
     );
 
@@ -79,13 +115,29 @@ const RobotDetails = ({ robot }) => {
                 </div>
 
                 <br />
-                <div>
-                    <Sensors />
+                <div className="flex flex-wrap">
+                    <div className="w-full md:w-1/3 px-2">
+                        <div className="mb-4">
+                            <Sensors sensors={sensors} />
+                        </div>
+                    </div>
+                    <div className="w-full md:w-1/3 px-2">
+                        <div className="mb-4">
+                            <Logs logs={logs} />
+                        </div>
+                    </div>
+                    <div className="w-full md:w-1/3 px-2">
+                        <div className="mb-4">
+                            <Notifications notifications={notifications} />
+                        </div>
+                    </div>
                 </div>
+
 
             </div>
         </div>
     );
+
 };
 
 export default RobotDetails;

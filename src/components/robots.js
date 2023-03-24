@@ -39,7 +39,7 @@ const robotsData = [
     {
         id: 4,
         name: "Wall-E",
-        model: "Waste Allocation Load Lifter: Earth-Class",
+        model: "AMG E63",
         manufacturer: "Buy n Large",
         serialNumber: "C001",
         height: "0.43 m",

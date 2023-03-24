@@ -8,30 +8,38 @@ const RobotDetails = ({ robot }) => {
 
     const { id, name, model, manufacturer, serialNumber, height, mass, status, description, sensors, logs, notifications } = robot;
 
-    const Sensor = ({ type, status }) => (
+    const Sensor = ({ type, status, reading }) => (
         <div className="flex justify-between py-1">
             <p>{type}</p>
+            <p>{status}</p>
+            <p>{reading}</p>
             <p className={`ml-2 ${status ? 'text-green-600' : 'text-red-600'}`}>{status ? 'OK' : 'FAILED'}</p>
         </div>
     );
 
+
     const Sensors = ({ sensors }) => (
         <div className="bg-gray-100 rounded-md shadow-lg p-4">
             <h2 className="font-bold mb-4">Sensors</h2>
-            {/* <div>
+            <div>
                 {sensors.map((sensor) => (
-                    <Sensor key={sensor.type} type={sensor.type} status={sensor.status} />
+                    <Sensor key={sensor.type} type={sensor.type} status={sensor.status} reading={sensor.reading} lastUpdate={sensor.lastUpdate} />
                 ))}
-            </div> */}
-            <Link to={`/robots/${id}/feed`} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
-                View Camera Feed
-            </Link>
+            </div>
+            <div className="mt-5">
+                <Link to={`/robots/${id}/feed`} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
+                    View Camera Feed
+                </Link>
+            </div>
+
         </div>
     );
+
 
     const Log = ({ time, event }) => (
         <div className="flex justify-between py-1">
             <p>{time}</p>
+            <p>{event}</p>
             <p className="ml-2 text-gray-600">{event}</p>
         </div>
     );
@@ -40,17 +48,18 @@ const RobotDetails = ({ robot }) => {
         <div className="bg-gray-100 rounded-md shadow-lg p-4 mr-4">
             <h2 className="font-bold mb-4">Logs</h2>
             <div>
-                {/* {logs.map((log) => (
-                    <Log key={log.time} time={log.time} event={log.event} />
-                ))} */}
+                {logs.map((log) => (
+                    <Log key={log.date} time={log.time} event={log.event} />
+                ))}
             </div>
         </div>
     );
 
-    const Notification = ({ type, message }) => (
+    const Notification = ({ type, message, time }) => (
         <div className="flex justify-between py-1">
             <p className="font-bold">{type}</p>
             <p className="ml-2 text-gray-600">{message}</p>
+            <p className="ml-2 text-gray-600">{time}</p>
         </div>
     );
 
@@ -58,12 +67,13 @@ const RobotDetails = ({ robot }) => {
         <div className="bg-gray-100 rounded-md shadow-lg p-4">
             <h2 className="font-bold mb-4">Notifications</h2>
             <div>
-                {/* {notifications.map((notification) => (
-                    <Notification key={notification.type} type={notification.type} message={notification.message} />
-                ))} */}
+                {notifications.map((notification) => (
+                    <Notification key={notification.type} type={notification.type} message={notification.message} time={notification.time} />
+                ))}
             </div>
         </div>
     );
+
 
     return (
         <div>

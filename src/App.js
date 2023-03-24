@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import CameraFeed from "./components/CameraFeed";
 import RobotList from "./components/RobotList";
 import RobotDetailsWrapper from "./components/RobotDetailsWrapper";
 import "./App.css";
@@ -25,6 +26,10 @@ function App() {
           <Route
             path="/robot/:id"
             element={<RobotDetailsWrapper robots={robots} />}
+          />
+          <Route
+            path="/robot/:id/feed"
+            element={<CameraFeed />}
           />
         </Routes>
       </Router>

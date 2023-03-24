@@ -27,9 +27,16 @@ const RobotDetails = ({ robot }) => {
                 ))}
             </div>
             <div className="mt-5">
-                <Link to={`/robots/${id}/feed`} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
+                <Link
+                    to={{
+                        pathname: `/robots/${id}/feed`,
+                        state: { robot },
+                    }}
+                    className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md"
+                >
                     View Camera Feed
                 </Link>
+
             </div>
 
         </div>

@@ -27,7 +27,7 @@ function App() {
             element={<RobotDetailsWrapper robots={robots} />}
           />
           <Route
-            path="/robot/:id/feed"
+            path="/robots/:id/feed"
             element={<CameraFeed />}
           />
         </Routes>

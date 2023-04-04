@@ -7,6 +7,7 @@ import RobotDetailsWrapper from "./components/RobotDetailsWrapper";
 import "./App.css";
 import robotsData from "./components/robots";
 
+
 function App() {
   const [robots, setRobots] = useState([]);
 

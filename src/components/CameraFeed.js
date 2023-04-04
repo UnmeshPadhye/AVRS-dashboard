@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "./Header";
+import axios from "axios"
 
 const CameraFeed = () => {
     const [stream, setStream] = useState(null);
     const [error, setError] = useState(false);
+    const { id } = useParams()
 
     useEffect(() => {
         const constraints = {
@@ -31,7 +33,16 @@ const CameraFeed = () => {
 
     const handleDirection = (direction) => {
         // TODO: Implement robot movement based on direction
-        console.log(`Moving robot ${direction}`);
+        console.log(`Moving robot ${id}: ${direction}`);
+        axios.post('/api/move', {
+            direction: direction,
+            robotID: id
+        })
+            .then(response => {
+                console.log(response.data);
+            }).catch(error => {
+                console.log(error);
+            })
     };
 
     const Object = ({ type, message, time }) => (

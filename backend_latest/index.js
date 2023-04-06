@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
-
-// const apiRouter = require('./routes/api');
+const router = require('./routes/apiRoutes');
 
 app.use(express.json());
-// app.use('/api', apiRouter);
+app.use('/api', router);
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}!`));

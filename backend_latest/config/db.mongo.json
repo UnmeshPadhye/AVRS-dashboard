@@ -1,0 +1,13 @@
+{
+  "dev": {
+    "uri": "mongodb+srv://koushik:koushik@cluster0.7jqgxjl.mongodb.net/?retryWrites=true&w=majority",
+    "connectionOptions": {
+      "maxPoolSize": 5,
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true
+    }
+  },
+  "prod": {
+    "uri": ""
+  }
+}

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const router = require('./routes/apiRoutes');
-const mongodb = require('./db/index')
+const mongoDB = require('./db/index')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

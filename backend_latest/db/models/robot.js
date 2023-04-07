@@ -9,19 +9,15 @@ const sensorSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        required: true,
     },
     status: {
         type: String,
-        required: true,
     },
     value: {
-        type: Number,
-        required: true,
+        type: String,
     },
     timestamp: {
-        type: Date,
-        required: true,
+        type: Date
     },
 });
 
@@ -29,7 +25,6 @@ const sensorSchema = new mongoose.Schema({
 const logSchema = new mongoose.Schema({
     date: {
         type: Date,
-        required: true,
         default: Date.now
     },
     message: {
@@ -62,7 +57,6 @@ const notificationSchema = new mongoose.Schema({
     },
     timestamp: {
         type: Date,
-        required: true,
     },
 });
 

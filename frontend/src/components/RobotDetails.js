@@ -6,7 +6,7 @@ const RobotDetails = ({ robot, index }) => {
         return <div>Loading...</div>;
     }
 
-    const { id, name, model, manufacturer, serialNumber, height, mass, status, description, sensors, logs, notifications } = robot;
+    const { _id, name, model, manufacturer, serialNumber, height, mass, status, description, sensors, logs, notifications } = robot;
 
     const Sensor = ({ type, status, reading }) => (
         <div className="flex justify-between py-1">
@@ -29,7 +29,7 @@ const RobotDetails = ({ robot, index }) => {
             <div className="mt-5">
                 <Link
                     to={{
-                        pathname: `/robots/${id}/feed`,
+                        pathname: `/robots/${_id}/feed`,
                         state: { robot },
                     }}
                     className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md"

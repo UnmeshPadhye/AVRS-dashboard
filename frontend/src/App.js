@@ -35,7 +35,7 @@ function App() {
           />
           <Route
             path="/robot/:id"
-            element={<RobotDetailsWrapper />}
+            element={<RobotDetailsWrapper robots={robots} />}
           />
           <Route
             path="/robots/:id/feed"

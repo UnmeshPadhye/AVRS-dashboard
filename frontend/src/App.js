@@ -5,6 +5,8 @@ import RobotList from "./components/RobotList";
 import RobotDetailsWrapper from "./components/RobotDetailsWrapper";
 import "./App.css";
 import robotsData from "./components/robots";
+import axios from "axios";
+import { BACKEND_URL } from './config/url';
 
 
 function App() {
@@ -12,6 +14,15 @@ function App() {
 
   useEffect(() => {
     setRobots(robotsData);
+    console.log(BACKEND_URL);
+    axios.get(`${BACKEND_URL}/robots`)
+      .then(res => {
+        setRobots(res.data.robots);
+        console.log(res.data.robots);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -24,7 +35,7 @@ function App() {
           />
           <Route
             path="/robot/:id"
-            element={<RobotDetailsWrapper robots={robots} />}
+            element={<RobotDetailsWrapper />}
           />
           <Route
             path="/robots/:id/feed"

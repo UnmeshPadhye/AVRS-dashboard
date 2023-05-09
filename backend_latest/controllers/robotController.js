@@ -80,6 +80,7 @@ const getZedStream = async (req, res) => {
         res.write(data, 'binary');
         // res.status(200);
         res.end();
+        console.log("Data: ", data.toString(), stream, res);
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server error' });

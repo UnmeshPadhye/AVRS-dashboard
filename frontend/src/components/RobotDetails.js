@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import Header from './Header';
 
-const RobotDetails = ({ robot }) => {
+const RobotDetails = ({ robot, index }) => {
     if (!robot) {
         return <div>Loading...</div>;
     }
 
-    const { id, name, model, manufacturer, serialNumber, height, mass, status, description, sensors, logs, notifications } = robot;
+    const { _id, name, model, manufacturer, serialNumber, height, mass, status, description, sensors, logs, notifications } = robot;
 
     const Sensor = ({ type, status, reading }) => (
         <div className="flex justify-between py-1">
@@ -29,7 +29,7 @@ const RobotDetails = ({ robot }) => {
             <div className="mt-5">
                 <Link
                     to={{
-                        pathname: `/robots/${id}/feed`,
+                        pathname: `/robots/${_id}/feed`,
                         state: { robot },
                     }}
                     className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md"
@@ -91,7 +91,7 @@ const RobotDetails = ({ robot }) => {
                 <div className="bg-slate-100  shadow-lg rounded-lg px-4 py-2">
                     <div className="">
                         <div className="flex justify-center items-center">
-                            <img className="w-40 h-40" src={`https://robohash.org/${id}`} alt={`Robot ${name}`} />
+                            <img className="w-40 h-40" src={`https://robohash.org/${index}`} alt={`Robot ${name}`} />
                             <div className="text-center ml-4">
                                 <h2 className="text-2xl font-bold mb-2">{name}</h2>
                                 <p className="text-lg text-gray-600">{model}</p>

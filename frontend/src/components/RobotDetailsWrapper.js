@@ -4,7 +4,8 @@ import RobotDetails from "./RobotDetails";
 
 const RobotDetailsWrapper = ({ robots }) => {
     const { id } = useParams();
-    const robot = robots.find((r) => r.id === Number(id));
+    console.log(id);
+    const robot = robots.find((r) => r._id === String(id));
 
 
     return (

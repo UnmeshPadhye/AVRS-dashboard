@@ -66,61 +66,80 @@ const CameraFeed = () => {
 
     return (
         <div>
-            <Header title={`Camera feed`} />
+            <Header title={`Robot Feed`} />
             <div className="flex justify-center items-center">
                 {error ? (
                     <p>Video not available</p>
                 ) : (
                     <>
-                        <div className="relative w-full h-full">
-                            <video
-                                width="640"
-                                height="480"
-                                style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
-                                controls
-                                autoPlay
-                                playsInline
-                                muted
-                                ref={(video) => {
-                                    if (video && stream) {
-                                        video.srcObject = stream;
-                                    }
-                                }}
-                            />
-                            <div className="bg-slate-200 w-64 h-84 ml-60">
-                                <div className="top-10 right-0 flex flex-col justify-center items-center">
-                                    <div className="w-24 h-24 bg-white bg-opacity-90 rounded-full flex justify-center items-center ">
-                                        <button onClick={() => handleDirection("forward")} className="text-2xl">
-                                            ↑
-                                        </button>
+                        <div className="relative w-full h-full flex flex-col md:flex-row">
+                            <div className="flex flex-col md:flex-row">
+                                <div className="w-full md:w-1/2">
+                                    <div className="relative h-full">
+                                        <p> Video Feed </p>
+                                        <video
+                                            width="640"
+                                            height="480"
+                                            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                                            controls
+                                            autoPlay
+                                            playsInline
+                                            muted
+                                            ref={(video) => {
+                                                if (video && stream) {
+                                                    video.srcObject = stream;
+                                                }
+                                            }}
+                                        />
                                     </div>
-                                    <div className="-ml-36">
-                                        <div className="w-24 h-24 bg-white bg-opacity-90 rounded-full flex justify-center items-center">
-                                            <button onClick={() => handleDirection("left")} className="text-2xl">
-                                                ←
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div className="w-24 h-24 bg-white bg-opacity-90 rounded-full flex justify-center items-center mt-4">
-                                        <button onClick={() => handleDirection("back")} className="text-2xl">
-                                            ↓
-                                        </button>
-                                    </div>
-                                    <div className="-mr-36 -mt-56">
-                                        <div className="w-24 h-24 bg-white bg-opacity-90 rounded-full flex justify-center items-center mt-4">
-                                            <button onClick={() => handleDirection("right")} className="text-2xl">
-                                                →
-                                            </button>
-                                        </div>
-                                    </div>
-
                                 </div>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-1/3 px-2">
-                            <div className="mb-4">
-                                <Objects />
+                                <div className="w-full md:w-1/2">
+                                    <div className="relative h-full">
+                                        <p> Bird Eye View </p>
+                                        <video
+                                            width="640"
+                                            height="480"
+                                            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                                            controls
+                                            autoPlay
+                                            playsInline
+                                            muted
+                                            ref={(video) => {
+                                                if (video && stream) {
+                                                    video.srcObject = stream;
+                                                }
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="w-full md:w-1/2">
+                                    <div className="relative h-full">
+                                        <p> Lidar Feed </p>
+                                        <video
+                                            width="640"
+                                            height="480"
+                                            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                                            controls
+                                            autoPlay
+                                            playsInline
+                                            muted
+                                            ref={(video) => {
+                                                if (video && stream) {
+                                                    video.srcObject = stream;
+                                                }
+                                            }}
+                                        />
+
+
+                                    </div>
+                                </div>
+                                <div className="">
+                                    <div className="w-full md:w-1/3 px-2">
+                                        <div className="mb-4">
+                                            <Objects />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </>
@@ -128,6 +147,8 @@ const CameraFeed = () => {
             </div>
         </div>
     );
+
+
 
 };
 

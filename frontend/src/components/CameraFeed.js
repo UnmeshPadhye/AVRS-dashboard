@@ -1,58 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
-import axios from "axios";
-import { BACKEND_URL } from "../config/url";
+import axios from "axios"
 
 const CameraFeed = () => {
     const [stream, setStream] = useState(null);
     const [error, setError] = useState(false);
-    const { id } = useParams();
+    const { id } = useParams()
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${BACKEND_URL}/robots/live`, { responseType: 'arraybuffer' });
-                const reader = response.data[Symbol.asyncIterator]();
-                const contentType = response.headers.get('content-type');
-                const boundary = `--${contentType.split(';')[1].split('=')[1]}\r\n`;
-                let data = '';
-                let isDataStarted = false;
+        const constraints = {
+            video: true,
+        };
 
-                const consume = async () => {
-                    const { done, value } = await reader.next();
-                    if (done) {
-                        console.log('Stream finished');
-                        return;
-                    }
-                    data += new TextDecoder().decode(value);
-                    if (data.includes(boundary)) {
-                        if (!isDataStarted) {
-                            isDataStarted = true;
-                            const start = data.indexOf(boundary) + boundary.length;
-                            data = data.slice(start);
-                        } else {
-                            const end = data.indexOf(boundary);
-                            const blob = new Blob([data.slice(0, end)], { type: 'image/jpeg' });
-                            const url = URL.createObjectURL(blob);
-                            setStream(url);
-                            data = data.slice(end + boundary.length);
-                        }
-                    }
-                    consume();
-                };
+        const success = (stream) => {
+            setStream(stream);
+        };
 
-                consume();
-            } catch (error) {
-                console.error(error);
-                setError(true);
+        const failure = (error) => {
+            setError(true);
+            console.error(error);
+        };
+
+        navigator.mediaDevices.getUserMedia(constraints).then(success).catch(failure);
+
+        return () => {
+            if (stream) {
+                stream.getTracks().forEach((track) => track.stop());
             }
         };
-        fetchData();
     }, []);
 
-
     const handleDirection = (direction) => {
+        // Backend call for Robot Movement 
         console.log(`Moving robot ${id}: ${direction}`);
         axios.post('/api/move', {
             direction: direction,

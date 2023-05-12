@@ -1,0 +1,22 @@
+export const errorData = [
+    { hour: "1:00", errors: 5, resolutions: 3 },
+    { hour: "2:00", errors: 7, resolutions: 4 },
+    { hour: "3:00", errors: 2, resolutions: 1 },
+    { hour: "4:00", errors: 3, resolutions: 2 },
+    { hour: "5:00", errors: 1, resolutions: 1 },
+    { hour: "6:00", errors: 0, resolutions: 0 },
+    { hour: "7:00", errors: 4, resolutions: 3 },
+    { hour: "8:00", errors: 6, resolutions: 4 },
+    { hour: "9:00", errors: 2, resolutions: 2 },
+    { hour: "10:00", errors: 3, resolutions: 3 },
+    { hour: "11:00", errors: 1, resolutions: 0 },
+    { hour: "12:00", errors: 0, resolutions: 0 },
+    { hour: "13:00", errors: 3, resolutions: 2 },
+    { hour: "14:00", errors: 5, resolutions: 4 },
+    { hour: "15:00", errors: 2, resolutions: 1 },
+    { hour: "16:00", errors: 1, resolutions: 1 },
+    { hour: "17:00", errors: 0, resolutions: 0 },
+    { hour: "18:00", errors: 2, resolutions: 2 },
+    { hour: "19:00", errors: 3, resolutions: 3 },
+    { hour: "20:00", errors: 1, resolutions: 1 }
+];

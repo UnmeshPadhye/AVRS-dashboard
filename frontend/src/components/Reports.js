@@ -4,10 +4,6 @@ import { report_content } from "../data/reports";
 
 const Reports = ({ robot, index }) => {
 
-
-
-
-
     const Log = ({ time, event }) => (
         <div className="flex justify-between py-1">
             <p>{time}</p>

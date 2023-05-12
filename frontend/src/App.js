@@ -9,6 +9,7 @@ import axios from "axios";
 import { BACKEND_URL } from './config/url';
 import Navbar from "./components/Navbar";
 import Reports from "./components/Reports";
+import Visualizations from "./components/Visualize/Visualization";
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
           />
           <Route
             path="/robots/:id/visualizations"
-            element={<CameraFeed />}
+            element={<Visualizations />}
           />
         </Routes>
       </Router>

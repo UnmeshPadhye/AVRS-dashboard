@@ -1,17 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/Navbar.css";
+import "../style/Navbar.css";
+import botLogo from "../style/bot.png";
 
 function Navbar() {
     return (
         <nav className="navbar">
             <Link to="/" className="navbar__logo">
-                Robot Dashboard
+                <div className="flex flex-center hover:inline-flex">
+                    <img src={botLogo} alt="Bot Logo" className="navbar__logo" />
+                    <span className="ml-10 ">Robot Dashboard</span>
+                </div>
+
             </Link>
             <div className="navbar__links">
-                <Link to="/" className="navbar__link">
-
-                </Link>
+                <Link to="/" className="navbar__link"></Link>
                 <Link to="/reports" className="navbar__link">
                     Reports
                 </Link>

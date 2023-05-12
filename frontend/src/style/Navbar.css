@@ -9,7 +9,15 @@
   padding: 0 20px;
 }
 
-.navbar__links {
+.navbar__logo {
+  display: inline-block;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 90%;
+  background-color: white;
+}
+
+.navbar_left .navbar__links {
   display: flex;
   flex-direction: row;
   align-items: center;

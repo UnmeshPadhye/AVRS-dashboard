@@ -4,12 +4,17 @@
   align-items: center;
   width: 100%;
   height: 60px;
-  background-color: #333;
-  color: #fff;
   padding: 0 20px;
 }
 
-.navbar__links {
+.navbar__logo {
+  display: inline-block;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 90%;
+}
+
+.navbar_left .navbar__links {
   display: flex;
   flex-direction: row;
   align-items: center;

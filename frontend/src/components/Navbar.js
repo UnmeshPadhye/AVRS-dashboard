@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/Navbar.css";
+import "../style/Navbar.css";
 
 function Navbar() {
     return (
-        <nav className="navbar">
+        <nav className="navbar shadow drop-shadow-md hover:drop-shadow-xl bg-gradient-to-r from-emerald-400 to-blue-500 ">
             <Link to="/" className="navbar__logo">
-                Robot Dashboard
+                <div className="flex flex-center">
+                    <img className="bg-white-rounded" width="64" height="64" src="https://img.icons8.com/nolan/64/bot.png" alt="bot" />
+                    <span className="ml-4 text-purple-700 hover:text-black">Robot Dashboard</span>
+                </div>
+
             </Link>
             <div className="navbar__links">
-                <Link to="/" className="navbar__link">
-
-                </Link>
+                <Link to="/" className="navbar__link"></Link>
                 <Link to="/reports" className="navbar__link">
                     Reports
                 </Link>
@@ -21,7 +23,7 @@ function Navbar() {
                 <Link to="/data" className="navbar__link">
                     Data
                 </Link>
-                <Link to="/live-feed" className="navbar__link">
+                <Link to="/robots/642f5f5fc37fdafc93e29cd2/feed" className="navbar__link">
                     Live Feed
                 </Link>
             </div>

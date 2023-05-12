@@ -1,5 +1,4 @@
 import React from "react";
-import VisualizationCard from "./ChartCard";
 import CardChart from "./ChartCard";
 
 const mockData = [

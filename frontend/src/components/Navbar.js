@@ -5,11 +5,11 @@ import botLogo from "../style/bot.png";
 
 function Navbar() {
     return (
-        <nav className="navbar">
+        <nav className="navbar shadow drop-shadow-md hover:drop-shadow-xl bg-gradient-to-r from-emerald-400 to-blue-500 ">
             <Link to="/" className="navbar__logo">
-                <div className="flex flex-center hover:inline-flex">
-                    <img src={botLogo} alt="Bot Logo" className="navbar__logo" />
-                    <span className="ml-10 ">Robot Dashboard</span>
+                <div className="flex flex-center">
+                    <img className="bg-white-rounded" width="64" height="64" src="https://img.icons8.com/nolan/64/bot.png" alt="bot" />
+                    <span className="ml-4 text-purple-700 hover:text-black">Robot Dashboard</span>
                 </div>
 
             </Link>

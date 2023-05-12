@@ -7,6 +7,7 @@ import "./App.css";
 import robotsData from "./components/robots";
 import axios from "axios";
 import { BACKEND_URL } from './config/url';
+import Navbar from "./components/Navbar";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+
       <Router>
         <Routes>
           <Route

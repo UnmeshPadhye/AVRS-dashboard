@@ -91,6 +91,7 @@ const CameraFeed = () => {
                                                 }
                                             }}
                                         />
+                                        <iframe id="stream" src="http://172.20.10.2:5000/video_feed"></iframe>
                                     </div>
                                 </div>
                                 <div className="w-full md:w-1/2">

@@ -4,7 +4,7 @@ import "../style/Navbar.css";
 
 function Navbar() {
     return (
-        <nav className="navbar shadow drop-shadow-md hover:drop-shadow-xl bg-gradient-to-r from-emerald-400 to-blue-500 ">
+        <nav className="navbar shadow drop-shadow-md hover:drop-shadow-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-500 ">
             <Link to="/" className="navbar__logo">
                 <div className="flex flex-center">
                     <img className="bg-white-rounded" width="64" height="64" src="https://img.icons8.com/nolan/64/bot.png" alt="bot" />
@@ -14,10 +14,10 @@ function Navbar() {
             </Link>
             <div className="navbar__links">
                 <Link to="/" className="navbar__link"></Link>
-                <Link to="/reports" className="navbar__link">
+                <Link to="/robots/642f5f5fc37fdafc93e29cd2/reports" className="navbar__link">
                     Reports
                 </Link>
-                <Link to="/visualizations" className="navbar__link">
+                <Link to="/robots/642f5f5fc37fdafc93e29cd2/visualizations" className="navbar__link">
                     Visualizations
                 </Link>
                 <Link to="/data" className="navbar__link">

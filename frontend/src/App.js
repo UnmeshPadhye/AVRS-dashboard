@@ -8,6 +8,7 @@ import robotsData from "./components/robots";
 import axios from "axios";
 import { BACKEND_URL } from './config/url';
 import Navbar from "./components/Navbar";
+import Reports from "./components/Reports";
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
           />
           <Route
             path="/robots/:id/reports"
-            element={<CameraFeed />}
+            element={<Reports />}
           />
           <Route
             path="/robots/:id/visualizations"

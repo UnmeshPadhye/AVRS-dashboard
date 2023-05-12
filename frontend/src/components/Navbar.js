@@ -24,7 +24,7 @@ function Navbar() {
                 <Link to="/data" className="navbar__link">
                     Data
                 </Link>
-                <Link to="/live-feed" className="navbar__link">
+                <Link to="/robots/642f5f5fc37fdafc93e29cd2/feed" className="navbar__link">
                     Live Feed
                 </Link>
             </div>

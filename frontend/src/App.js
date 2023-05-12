@@ -43,6 +43,14 @@ function App() {
             path="/robots/:id/feed"
             element={<CameraFeed />}
           />
+          <Route
+            path="/robots/:id/reports"
+            element={<CameraFeed />}
+          />
+          <Route
+            path="/robots/:id/visualizations"
+            element={<CameraFeed />}
+          />
         </Routes>
       </Router>
     </div>

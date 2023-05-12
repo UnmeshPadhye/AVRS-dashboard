@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardBody } from "reactstrap";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
-const VisualizationCard = ({ title, data }) => {
+const CardChart = ({ title, data }) => {
   return (
     <Card className="shadow mb-4">
       <CardBody>
@@ -21,4 +21,4 @@ const VisualizationCard = ({ title, data }) => {
   );
 };
 
-export default VisualizationCard;
+export default CardChart;

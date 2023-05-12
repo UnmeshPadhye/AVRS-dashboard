@@ -1,7 +1,6 @@
 import React from "react";
-
-import VisualizationCard from "./VisualizationCard";
-
+import VisualizationCard from "./ChartCard";
+import CardChart from "./ChartCard";
 
 const mockData = [
     { name: "Monday", value: 10 },
@@ -19,10 +18,10 @@ const Visualizations = () => {
 
             <div className="row">
                 <div className="col-lg-6 mb-4">
-                    <VisualizationCard title="Errors Analysis" data={mockData} />
+                    <CardChart title="Errors Analysis" data={mockData} />
                 </div>
                 <div className="col-lg-6 mb-4">
-                    <VisualizationCard title="Performance" data={mockData} />
+                    <CardChart title="Performance" data={mockData} />
                 </div>
             </div>
         </div>

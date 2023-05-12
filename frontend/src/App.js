@@ -9,7 +9,7 @@ import axios from "axios";
 import { BACKEND_URL } from './config/url';
 import Navbar from "./components/Navbar";
 import Reports from "./components/Reports";
-import Visualizations from "./components/Visualize/Visualization";
+import Visualizations from "./components/Visualization";
 
 
 function App() {

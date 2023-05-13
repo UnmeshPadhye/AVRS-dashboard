@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
 import axios from "axios"
-import lidar_vid from '../data/video/lidar_vid.mp4'
+import lidar_vid from '../data/video/lidar_output_vid.mp4'
 
 const CameraFeed = () => {
     const [stream, setStream] = useState(null);
@@ -82,7 +82,7 @@ const CameraFeed = () => {
                                         <video
                                             width="640"
                                             height="480"
-                                            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                                            style={{ maxWidth: "100%", maxHeight: "70%", objectFit: "contain" }}
                                             controls
                                             autoPlay
                                             playsInline

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
 import axios from "axios"
+import lidar_vid from '../data/video/lidar_output_vid.mp4'
 
 const CameraFeed = () => {
     const [stream, setStream] = useState(null);
     const [error, setError] = useState(false);
     const { id } = useParams()
+
 
     useEffect(() => {
         const constraints = {
@@ -67,54 +69,54 @@ const CameraFeed = () => {
     return (
         <div>
             <Header title={`Robot Feed`} />
-            <div className="flex justify-center items-center">
+            <div className="flex">
                 {error ? (
                     <p>Video not available</p>
                 ) : (
                     <>
-                        <div className="relative w-full h-full flex flex-col md:flex-row">
-                            <div className="flex flex-col md:flex-row">
-                                <div className="w-full md:w-1/2">
-                                    <div className="relative h-full">
-                                        <p> Video Feed </p>
-                                        <video
-                                            width="640"
-                                            height="480"
-                                            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
-                                            controls
-                                            autoPlay
-                                            playsInline
-                                            muted
-                                            ref={(video) => {
-                                                if (video && stream) {
-                                                    video.srcObject = stream;
-                                                }
-                                            }}
-                                        />
-                                    </div>
+                        <div className="flex mt-10">
+                            <div className="card drop-shadow-lg flex flex-row md:w-1/2">
+                                <div className="row">
+                                    <h5 className="card-title mb-3"> Video Feed </h5>
+                                    <video
+                                        width="640"
+                                        height="480"
+                                        style={{ maxWidth: "100%", maxHeight: "70%", objectFit: "contain" }}
+                                        controls
+                                        autoPlay
+                                        playsInline
+                                        muted
+                                        ref={(video) => {
+                                            if (video && stream) {
+                                                video.srcObject = stream;
+                                            }
+                                        }}
+                                    />
                                 </div>
-                                <div className="w-full md:w-1/2">
-                                    <div className="relative h-full">
-                                        <p> Bird Eye View </p>
-                                        <video
-                                            width="640"
-                                            height="480"
-                                            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
-                                            controls
-                                            autoPlay
-                                            playsInline
-                                            muted
-                                            ref={(video) => {
-                                                if (video && stream) {
-                                                    video.srcObject = stream;
-                                                }
-                                            }}
-                                        />
-                                    </div>
+                            </div>
+                            <div className="card drop-shadow-lg flex flex-row md:w-1/2">
+                                <div className="relative h-full">
+                                    <h5 className="card-title mb-3"> Lidar Feed </h5>
+                                    <video
+                                        width="640"
+                                        height="480"
+                                        style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                                        controls
+                                        autoPlay
+                                        playsInline
+                                        muted
+                                        loop
+                                    >
+                                        <source src={lidar_vid} type="video/mp4" />
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </div>
-                                <div className="w-full md:w-1/2">
+                            </div>
+
+
+                            {/*  <div className="w-full md:w-1/3">
                                     <div className="relative h-full">
-                                        <p> Lidar Feed </p>
+                                        <p> Bird's Eye Feed </p>
                                         <video
                                             width="640"
                                             height="480"
@@ -132,20 +134,21 @@ const CameraFeed = () => {
 
 
                                     </div>
-                                </div>
-                                <div className="">
+                                </div> */}
+                            {/* <div className="">
                                     <div className="w-full md:w-1/3 px-2">
                                         <div className="mb-4">
                                             <Objects />
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div> */}
+
                         </div>
                     </>
-                )}
-            </div>
-        </div>
+                )
+                }
+            </div >
+        </div >
     );
 
 

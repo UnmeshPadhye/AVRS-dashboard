@@ -91,7 +91,7 @@ const RobotDetails = ({ robot, index }) => {
                 <div className="bg-slate-100  shadow-lg rounded-lg px-4 py-2">
                     <div className="">
                         <div className="flex justify-center items-center">
-                            <img className="w-40 h-40" src={`https://robohash.org/${index}`} alt={`Robot ${name}`} />
+                            <img className="w-40" src={`https://1000logos.net/wp-content/uploads/2021/07/San-Jose-State-Spartans-logo.png`} alt={`Robot ${name}`} />
                             <div className="text-center ml-4">
                                 <h2 className="text-2xl font-bold mb-2">{name}</h2>
                                 <p className="text-lg text-gray-600">{model}</p>

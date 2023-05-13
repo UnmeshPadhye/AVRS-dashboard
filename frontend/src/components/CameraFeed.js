@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
 import axios from "axios"
+import lidar_vid from '../data/video/lidar_vid.mp4'
 
 const CameraFeed = () => {
     const [stream, setStream] = useState(null);
     const [error, setError] = useState(false);
     const { id } = useParams()
+
 
     useEffect(() => {
         const constraints = {
@@ -67,15 +69,15 @@ const CameraFeed = () => {
     return (
         <div>
             <Header title={`Robot Feed`} />
-            <div className="flex justify-center items-center">
+            <div className="flex">
                 {error ? (
                     <p>Video not available</p>
                 ) : (
                     <>
-                        <div className="relative w-full h-full flex flex-col md:flex-row">
-                            <div className="flex flex-col md:flex-row">
-                                <div className="w-full md:w-1/2">
-                                    <div className="relative h-full">
+                        <div className="flex">
+                            <div className="flex">
+                                <div className="flex flex-row md:w-1/2">
+                                    <div className="row">
                                         <p> Video Feed </p>
                                         <video
                                             width="640"
@@ -93,9 +95,9 @@ const CameraFeed = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="w-full md:w-1/2">
+                                <div className="flex flex-row md:w-1/2">
                                     <div className="relative h-full">
-                                        <p> Bird Eye View </p>
+                                        <p> Lidar View </p>
                                         <video
                                             width="640"
                                             height="480"
@@ -104,17 +106,18 @@ const CameraFeed = () => {
                                             autoPlay
                                             playsInline
                                             muted
-                                            ref={(video) => {
-                                                if (video && stream) {
-                                                    video.srcObject = stream;
-                                                }
-                                            }}
-                                        />
+                                            loop
+                                        >
+                                            <source src={lidar_vid} type="video/mp4" />
+                                            Your browser does not support the video tag.
+                                        </video>
                                     </div>
                                 </div>
-                                <div className="w-full md:w-1/2">
+
+
+                                {/*  <div className="w-full md:w-1/3">
                                     <div className="relative h-full">
-                                        <p> Lidar Feed </p>
+                                        <p> Bird's Eye Feed </p>
                                         <video
                                             width="640"
                                             height="480"
@@ -132,20 +135,21 @@ const CameraFeed = () => {
 
 
                                     </div>
-                                </div>
-                                <div className="">
+                                </div> */}
+                                {/* <div className="">
                                     <div className="w-full md:w-1/3 px-2">
                                         <div className="mb-4">
                                             <Objects />
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </>
-                )}
-            </div>
-        </div>
+                )
+                }
+            </div >
+        </div >
     );
 
 
